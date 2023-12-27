@@ -21,13 +21,13 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-   
-      <SearchBox/>
 
       <ScrollView vertical showsVerticalScrollIndicator={false} >
 
+
           <SlidingBanner/>
 
+        
           <PopularCategories/>
 
           <RecomendService/>
