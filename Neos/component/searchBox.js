@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
-const SearchBox = ({}) => {
-    // onSearch
-//   const [query, setQuery] = useState('');
+const SearchBox = () => {
+  const navigation = useNavigation();
+  const [query, setQuery] = useState('');
 
   const handleSearch = () => {
-    // Perform the search with the query
-    // onSearch(query);
+    // Navigate to SearchScreen and pass the search query as a parameter
+    navigation.navigate('Search', { query });
   };
 
   return (
@@ -16,17 +17,19 @@ const SearchBox = ({}) => {
       <TextInput
         style={styles.input}
         placeholder="Search here"
-        // value={query}
-        // onChangeText={(text) => setQuery(text)}
-        // onSubmitEditing={handleSearch}
+        value={query}
+        onChangeText={(text) => setQuery(text)}
+        onSubmitEditing={handleSearch}
       />
-      <Icon
-        name="search"
-        size={20}
-        color="#333" // Change the color as needed
-        // onPress={handleSearch}
-        style={styles.icon}
-      />
+
+      <TouchableOpacity onPress={handleSearch}>
+        <Ionicons
+          name="search"
+          size={20}
+          color="#333"
+          style={styles.icon}
+        />
+      </TouchableOpacity>
     </View>
   );
 };

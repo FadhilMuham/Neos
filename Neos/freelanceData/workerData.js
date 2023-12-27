@@ -159,4 +159,3 @@ const workerData = [
   ];
 
 export default workerData;
-

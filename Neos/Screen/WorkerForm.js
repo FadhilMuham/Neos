@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, TextInput, StyleSheet, Image, Modal, FlatList, Alert } from 'react-native';
 import workerData, { jobCategories } from '../freelanceData/workerData';
+import tamp from '../freelanceData/tamp';
 
 const WorkerForm = ({ navigation }) => {
   const [name, setName] = useState('');
@@ -31,9 +32,10 @@ const WorkerForm = ({ navigation }) => {
       job: selectedJob,
     };
 
-    workerData.push(newWorker);
+    tamp.push(newWorker);
+    workerData.push(tamp);
 
-    navigation.navigate('App');
+    navigation.navigate('Login');
   };
 
   const renderItem = ({ item }) => (

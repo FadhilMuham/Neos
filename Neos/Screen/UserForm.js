@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import workerData from '../freelanceData/workerData';
+import tamp from '../freelanceData/tamp';
 
 const UserForm = ({ navigation }) => {
   const [name, setName] = useState('');
@@ -27,10 +28,11 @@ const UserForm = ({ navigation }) => {
       name,
       photo,
     };
-    workerData.push(newUser);
+    tamp.push(newUser);
+    workerData.push(tamp);
 
     // Navigate to the home screen
-    navigation.navigate('App');
+    navigation.navigate('Login');
   };
 
 

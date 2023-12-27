@@ -119,6 +119,8 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, TextInput, StyleSheet, Image, Alert } from 'react-native';
 import workerData from '../freelanceData/workerData';
+import { connect } from 'react-redux';
+import { login } from '../redux/action';
 
 const LoginScreen = ({ navigation }) => {
 
@@ -127,7 +129,7 @@ const LoginScreen = ({ navigation }) => {
 
 
   const handleLogin = () => {
-    // Add your login logic here
+
     const user = workerData.find((account) => account.phoneNumber === phoneNumber && account.pin === pin);
 
     if (phoneNumber.length !== 10 || pin.length !== 6) {
@@ -136,16 +138,18 @@ const LoginScreen = ({ navigation }) => {
     }
 
     if (phoneNumber === user.phoneNumber && pin === user.pin) {
+      login(user);
       navigation.navigate('App');
     } else {
       Alert.alert('Authentication Failed', 'Invalid phone number or PIN.');
     }
     console.log('Login:', phoneNumber, pin);
-    // For simplicity, let's just navigate to another screen
+    console.log('Login:', user);
+
   };
 
   const handleRegister = () => {
-    // Navigate to the registration screen
+  
     navigation.navigate('Register');
   };
 
@@ -208,7 +212,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     position: 'absolute',
-    top: 30,
+    bottom: 320,
     width: '80%',
     height: '50%',
   },
@@ -255,4 +259,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default connect(null, { login })(LoginScreen);
