@@ -5,13 +5,17 @@ import { connect } from 'react-redux';
 import { MapStateToProps } from 'react-redux';
 // import { useEffect } from 'react/cjs/react.production.min';
 
+//! MARQO MARK 3 => really dude...? -_-
+
+//* 3A. Okay, WHY YOU USE user AS PROPS??? I thought you'd be using redux right?
 const ProfileScreen = ({ user }) => {
   // useEffect(() => {
   //   console.log('User Data (ProfileScreen):', user);
   // }, [user]);
   
   console.log('User:', user);
-  // Assuming the user object is present in the Redux state
+  // Assuming the user object is present in the Redux state //* HINT-2 CALL THE REDUX STATE!
+  //* 3B. THIS CODE BLOCK WILL ALWAYS TRIGGER SINCE YOU USE user AS PROPS!!! -_-
   if (!user) {
     // Handle the case where the user object is not available
     return (

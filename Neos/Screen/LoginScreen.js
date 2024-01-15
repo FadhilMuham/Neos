@@ -127,25 +127,28 @@ const LoginScreen = ({ navigation }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [pin, setPin] = useState('');
 
-
   const handleLogin = () => {
+    //! MARQO MARK 1 => let's review your logic
 
+    //* 1A. Good, you've called the data and compared it here (usually, BACK END is the one who handle this)
     const user = workerData.find((account) => account.phoneNumber === phoneNumber && account.pin === pin);
 
+    //* 1B. NOT GOOD! You should validate first before compare -_- (This code should be above number 1A)
     if (phoneNumber.length !== 10 || pin.length !== 6) {
       Alert.alert('Invalid Input', 'Please enter a valid phone number and 6-digit PIN.');
       return;
     }
 
+    //* 1C. VERY GOOD! Handle after login
     if (phoneNumber === user.phoneNumber && pin === user.pin) {
-      login(user);
+      //* 1D. GOOD! handle to save user data => Continue to MARQO MARK 2
+      login(user); //* HINT-1 FIX your code to save the data 
       navigation.navigate('App');
     } else {
       Alert.alert('Authentication Failed', 'Invalid phone number or PIN.');
     }
     console.log('Login:', phoneNumber, pin);
     console.log('Login:', user);
-
   };
 
   const handleRegister = () => {
