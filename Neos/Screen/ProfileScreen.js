@@ -14,7 +14,7 @@ const ProfileScreen = ({ user }) => {
   // }, [user]);
   
   console.log('User:', user);
-  // Assuming the user object is present in the Redux state
+  // Assuming the user object is present in the Redux state //* HINT-2 CALL THE REDUX STATE!
   //* 3B. THIS CODE BLOCK WILL ALWAYS TRIGGER SINCE YOU USE user AS PROPS!!! -_-
   if (!user) {
     // Handle the case where the user object is not available

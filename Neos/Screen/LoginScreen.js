@@ -142,7 +142,7 @@ const LoginScreen = ({ navigation }) => {
     //* 1C. VERY GOOD! Handle after login
     if (phoneNumber === user.phoneNumber && pin === user.pin) {
       //* 1D. GOOD! handle to save user data => Continue to MARQO MARK 2
-      login(user);
+      login(user); //* HINT-1 FIX your code to save the data 
       navigation.navigate('App');
     } else {
       Alert.alert('Authentication Failed', 'Invalid phone number or PIN.');
