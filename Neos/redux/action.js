@@ -1,9 +1,14 @@
 // actions.js
+// actions.js
 export const login = (user) => ({
-    type: 'LOGIN',
-    payload: user,
-  });
-  
+  type: 'LOGIN',
+  payload: user,
+});
+
+export const saveLoginData = () => ({
+  type: 'SAVE_LOGIN_DATA',
+});
+
   export const logout = () => ({
     type: 'LOGOUT',
   });

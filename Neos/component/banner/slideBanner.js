@@ -1,37 +1,39 @@
-// SlidingBanner.js
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, Dimensions } from 'react-native';
 import Swiper from 'react-native-swiper';
+import bannerImages from './banner';
 
-const bannerImages = [
-  require('./banner2.png'),
-  require('./banner3.png'),
-  require('./banner4.png'),
-  // Add more image paths as needed
-];
+const { height } = Dimensions.get('window');
+const bannerHeight = height * 0.3;
 
 const SlidingBanner = () => {
   return (
-    <View style={styles.banner}>
-        <Swiper autoplay={true} loop={true} showsPagination={true} showsButtons={false}>
-          {bannerImages.map((image, index) => (
-            <View key={index}>
-              <Image source={image} style={styles.image} resizeMode="cover" />
-            </View>
-          ))}
-        </Swiper>
-      </View>
+    <View style={styles.container}>
+      <Swiper style={styles.wrapper} showsButtons={false} autoplay={true} loop={true}>
+        {bannerImages.map((image, index) => (
+          <View key={index} style={styles.slide}>
+            <Image source={image} style={styles.image} />
+          </View>
+        ))}
+      </Swiper>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    height: bannerHeight,
+  },
   wrapper: {},
-  banner: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
+  slide: {
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: 15,
-    height: '20%',
+  },
+  image: {
+    width: '100%',
+    height: '80%',
+    resizeMode: 'cover',
   },
 });
 

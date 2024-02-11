@@ -16,15 +16,14 @@ const Tab = createBottomTabNavigator();
 const BottomNavigation = () => {
   return (
 
-    <Provider store={store}>
         <NavigationContainer independent={true}> 
           <Tab.Navigator
             screenOptions={({ route }) => ({
               tabBarStyle: {
                 position: 'absolute',
-                bottom: 20,
-                left: 20,
-                right: 20,
+                bottom: 0, // Adjust this value to set the position from the bottom
+                left: 0,
+                right: 0,
                 elevation: 0,
                 backgroundColor: '#fff',
                 borderRadius: 15,
@@ -57,19 +56,14 @@ const BottomNavigation = () => {
 
                 return <Ionicons name={iconName} size={size} color={color} />;
               },
-            })}
-            // tabBarOptions={{
-            //   activeTintColor: '#00B8FF',
-            //   inactiveTintColor: 'gray',
-            // }}
-          >
+            })}>
+              
             <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="Search" component={SearchScreen} />
             <Tab.Screen name="Project" component={ProjectScreen} />
+            <Tab.Screen name="Search" component={SearchScreen} />
             <Tab.Screen name="Profile" component={ProfileScreen} />
           </Tab.Navigator>
         </NavigationContainer>
-    </Provider>
   );
 };
 

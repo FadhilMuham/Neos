@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, TextInput, StyleSheet, Image, Alert } from 'react-native';
 import workerData from '../freelanceData/workerData';
+import tamp from '../freelanceData/tamp';
 
 
 const RegisterScreen = ({ navigation }) => {
@@ -27,9 +28,13 @@ const RegisterScreen = ({ navigation }) => {
       return;
     }
 
-    // Update the original workerData array
+    // const registeredUsers = [...tamp.users]; // assuming that tamp has a property named 'users'
     workerData.push({ id: newId, phoneNumber, pin });
-    console.log('Updated workerData:', workerData);
+  
+    // Update the original tamp object
+    // tamp.users = registeredUsers;
+  
+    console.log('Updated tamp:', tamp, workerData);
 
     // You have successfully registered, navigate to OptionScreen
     navigation.navigate('Option');

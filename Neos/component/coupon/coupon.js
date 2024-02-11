@@ -1,53 +1,48 @@
-// Coupon.js
 import React from 'react';
-import { View, Text } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome'; // Choose an appropriate icon
+import { View, Image, StyleSheet, Dimensions, Text } from 'react-native';
+import Swiper from 'react-native-swiper';
+import { dummyCoupons } from './couponDummy';
 
-const dummyData = [
-  {
-    code: 'SAVE20',
-    discount: 20,
-    expirationDate: '2023-12-31',
-  },
-  {
-    code: 'FREESHIP',
-    discount: 15,
-    expirationDate: '2023-11-30',
-  },
-  // Add more dummy data as needed
-];
+const { height } = Dimensions.get('window');
+const bannerHeight = height * 0.3;
 
-const Coupon = ({ code, discount, expirationDate }) => {
+const SlidingCoupon = () => {
+  
   return (
-    <View style={styles.coupon}>
-      <View style={styles.couponHeader}>
-        <Icon name="tag" size={20} style={styles.couponIcon} />
-        <Text style={styles.couponCode}>{code}</Text>
-      </View>
-      <Text>Discount: {discount}%</Text>
-      <Text>Expires on: {expirationDate}</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Available Coupons</Text>
+      <Swiper style={styles.wrapper} showsButtons={false} autoplay={true} loop={true}>
+        {dummyCoupons.map((image, index) => (
+          <View key={index} style={styles.slide}>
+            <Image source={image} style={styles.image} />
+          </View>
+        ))}
+      </Swiper>
     </View>
   );
 };
 
-const styles = {
-  coupon: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    padding: 10,
-    margin: 10,
-    borderRadius: 5,
+const styles = StyleSheet.create({
+  container: {
+    height: bannerHeight + 40, // Adjusted for the title height
   },
-  couponHeader: {
-    flexDirection: 'row',
+  title: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    marginLeft: 10,
+    marginBottom: 10,
+  },
+  wrapper: {},
+  slide: {
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
   },
-  couponIcon: {
-    marginRight: 5,
+  image: {
+    width: '100%',
+    height: '70%',
+    resizeMode: 'cover',
   },
-  couponCode: {
-    fontSize: 18,
-  },
-};
+});
 
-export { Coupon, dummyData };
+export default SlidingCoupon;
