@@ -1,8 +1,4 @@
-const tamp = [
-    { 
-      
-    }
-]
+const tamp = {}
 
 export default tamp;
 

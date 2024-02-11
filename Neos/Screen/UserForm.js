@@ -28,8 +28,8 @@ const UserForm = ({ navigation }) => {
       name,
       photo,
     };
-    tamp.push(newUser);
-    workerData.push(tamp);
+    workerData.push(newUser);
+    // workerData.push(tamp);
 
     // Navigate to the home screen
     navigation.navigate('Login');

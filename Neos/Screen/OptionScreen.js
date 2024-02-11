@@ -3,6 +3,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import workerData from '../freelanceData/workerData';
+import tamp from '../freelanceData/tamp';
 
 const OptionScreen = ({ navigation }) => {
   const handleUserOption = () => {
@@ -11,7 +12,7 @@ const OptionScreen = ({ navigation }) => {
       role: 'user',
     };
     workerData.push(newUser);
-
+    console.log(tamp)
     // Navigate to the user form screen
     navigation.navigate('UserForm');
   };
@@ -22,6 +23,7 @@ const OptionScreen = ({ navigation }) => {
       role: 'worker',
     };
     workerData.push(newWorker);
+    console.log(workerData)
 
     // Navigate to the worker form screen
     navigation.navigate('WorkerForm');

@@ -32,8 +32,9 @@ const WorkerForm = ({ navigation }) => {
       job: selectedJob,
     };
 
-    tamp.push(newWorker);
-    workerData.push(tamp);
+    workerData.push(newWorker);
+    // workerData.push(tamp);
+    console.log(tamp,workerData)
 
     navigation.navigate('Login');
   };

@@ -1,13 +1,41 @@
-const workerData = [
-    { 
+
+  const workerData = [
+    {
       id: 1,
       phoneNumber: '1234567890',
       pin: '123456',
       role: 'worker',
-      name: 'Muhammad Fadhil', 
-      job: 'Mobile App Development', 
-      photo: require('./photo/photoProfile.png'), 
-      productPhoto: require('./photo/project.png')
+      name: 'Muhammad Fadhil',
+      job: 'Mobile App Development',
+      photo: require('./photo/photoProfile.png'),
+      productPhoto: require('./photo/project.png'),
+      skills: [
+        { id: 1, name: 'Skill 1', description: 'Low Fidelity Mockup', priceRange: '$50' },
+        { id: 2, name: 'Skill 2', description: 'High Fid Prototype', priceRange: '$80' },
+        { id: 3, name: 'Skill 3', description: 'React Native Prototype', priceRange: '$100' },
+        { id: 4, name: 'Skill 4', description: 'Ready to use app', priceRange: '$400' },
+      ],
+      certificates: [
+        {
+          title: 'UI/UX Mastery',
+          issuingOrganization: 'MySkill.id',
+          dateEarned: '2023-08-19',
+          photo: require('./certificate/uiux1.jpg'),
+        },
+        {
+          title: 'UI/UX Mastery',
+          issuingOrganization: 'SanberCode',
+          dateEarned: '2023-02-24',
+          photo: require('./certificate/uiux2.jpg'),
+        },
+        {
+          title: 'React Native',
+          issuingOrganization: 'SanberCode',
+          dateEarned: '2023-01-21',
+          photo: require('./certificate/reactnative.jpg'),
+        },
+        // Add more certificates as needed
+      ],
     },
     { 
       id: 2,
@@ -17,7 +45,11 @@ const workerData = [
       name: 'Jane Smith', 
       job: 'Web Development', 
       photo: require('./photo/photoProfile.png'), 
-      productPhoto: require('./photo/project.png') 
+      productPhoto: require('./photo/project.png'),
+      skills: [
+        { id: 5, name: 'Skill 5', description: 'Web Design', priceRange: '$60' },
+      ],
+      certificates: [],
     },
     {
       id: 3, 
@@ -27,7 +59,11 @@ const workerData = [
       name: 'Mike Johnson', 
       job: 'Mobile App Development', 
       photo: require('./photo/photoProfile.png'), 
-      productPhoto: require('./photo/project.png') 
+      productPhoto: require('./photo/project.png') ,
+      skills: [
+        { id: 6, name: 'Skill 6', description: 'App Testing', priceRange: '$70' },
+      ],
+      certificates: [],
     },
     { 
       id: 4, 
@@ -37,7 +73,11 @@ const workerData = [
       name: 'Emily Brown', 
       job: 'Graphic Design', 
       photo: require('./photo/photoProfile.png'),
-       productPhoto: require('./photo/project.png')
+      productPhoto: require('./photo/project.png'),
+      skills: [
+        { id: 9, name: 'Skill 9', description: 'Logo Design', priceRange: '$90' },
+      ],
+      certificates: [],
     },
     { 
       id: 5, 
@@ -47,7 +87,11 @@ const workerData = [
       name: 'Alex Wilson', 
       job: 'Product Design', 
       photo: require('./photo/photoProfile.png'), 
-      productPhoto: require('./photo/project.png')
+      productPhoto: require('./photo/project.png'),
+      skills: [
+        { id: 10, name: 'Skill 10', description: 'Product Prototyping', priceRange: '$75' },
+      ],
+      certificates: [],
     },
     { 
       id: 6, 
@@ -57,7 +101,11 @@ const workerData = [
       name: 'Sara Davis', 
       job: 'Web Development', 
       photo: require('./photo/photoProfile.png'), 
-      productPhoto: require('./photo/project.png') 
+      productPhoto: require('./photo/project.png') ,
+      skills: [
+        { id: 11, name: 'Skill 11', description: 'Frontend Development', priceRange: '$80' },
+      ],
+      certificates: [],
     },
     { 
       id: 7, 
@@ -67,7 +115,11 @@ const workerData = [
       name: 'Chris Thompson', 
       job: 'Mobile App Development', 
       photo: require('./photo/photoProfile.png'), 
-      productPhoto: require('./photo/project.png') 
+      productPhoto: require('./photo/project.png') ,
+      skills: [
+        { id: 12, name: 'Skill 12', description: 'Backend Development', priceRange: '$100' },
+      ],
+      certificates: [],
     },
     { 
       id: 8, 
@@ -77,7 +129,11 @@ const workerData = [
       name: 'Rachel Miller', 
       job: 'Graphic Design',
       photo: require('./photo/photoProfile.png'),
-      productPhoto: require('./photo/project.png') 
+      productPhoto: require('./photo/project.png') ,
+      skills: [
+        { id: 13, name: 'Skill 13', description: 'Print Design', priceRange: '$70' },
+      ],
+      certificates: [],
     },
     { 
       id: 9, 
@@ -87,7 +143,11 @@ const workerData = [
       name: 'Daniel Lee', 
       job: 'Product Design', 
       photo: require('./photo/photoProfile.png'), 
-      productPhoto: require('./photo/project.png')
+      productPhoto: require('./photo/project.png'),
+      skills: [
+        { id: 14, name: 'Skill 14', description: '3D Modeling', priceRange: '$120' },
+      ],
+      certificates: [],
     },
     { 
       id: 10, 
@@ -97,7 +157,11 @@ const workerData = [
       name: 'Sophie Clark', 
       job: 'Web Development', 
       photo: require('./photo/photoProfile.png'), 
-      productPhoto: require('./photo/project.png') 
+      productPhoto: require('./photo/project.png') ,
+      skills: [
+        { id: 15, name: 'Skill 15', description: 'Responsive Design', priceRange: '$90' },
+      ],
+      certificates: [],
     },
     { 
       id: 11, 
@@ -107,7 +171,11 @@ const workerData = [
       name: 'Ryan White', 
       job: 'Mobile App Development', 
       photo: require('./photo/photoProfile.png'), 
-      productPhoto: require('./photo/project.png') 
+      productPhoto: require('./photo/project.png') ,
+      skills: [
+        { id: 16, name: 'Skill 16', description: 'UI/UX Design', priceRange: '$90' },
+      ],
+      certificates: [],
     },
     { 
       id: 12, 
@@ -117,7 +185,11 @@ const workerData = [
       name: 'Olivia Martinez', 
       job: 'Graphic Design', 
       photo: require('./photo/photoProfile.png'), 
-      productPhoto: require('./photo/project.png') 
+      productPhoto: require('./photo/project.png'),
+      skills: [
+        { id: 17, name: 'Skill 17', description: 'Illustration', priceRange: '$80' },
+      ],
+      certificates: [],
     },
     { 
       id: 13, 
@@ -127,7 +199,11 @@ const workerData = [
       name: 'Andrew Taylor', 
       job: 'Product Design',
       photo: require('./photo/photoProfile.png'), 
-      productPhoto: require('./photo/project.png') 
+      productPhoto: require('./photo/project.png') ,
+      skills: [
+        { id: 18, name: 'Skill 18', description: 'Packaging Design', priceRange: '$95' },
+      ],
+      certificates: [],
     },
     { 
       id: 14, 
@@ -137,7 +213,11 @@ const workerData = [
       name: 'Jessica Carter', 
       job: 'Web Development', 
       photo: require('./photo/photoProfile.png'), 
-      productPhoto: require('./photo/project.png') 
+      productPhoto: require('./photo/project.png') ,
+      skills: [
+        { id: 19, name: 'Skill 19', description: 'JavaScript Development', priceRange: '$85' },
+      ],
+      certificates: [],
     },
     { 
       id: 15, 
@@ -147,7 +227,11 @@ const workerData = [
       name: 'Benjamin Harris', 
       job: 'Mobile App Development', 
       photo: require('./photo/photoProfile.png'), 
-      productPhoto: require('./photo/project.png') 
+      productPhoto: require('./photo/project.png'),
+      skills: [
+        { id: 20, name: 'Skill 20', description: 'Mobile UI Design', priceRange: '$100' },
+      ],
+      certificates: [],
     },
   ];
 
